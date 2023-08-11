@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiflie</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Beautiflie</h1>
+        <h4>Login Account</h4>
+        <form action="" id="login">
+            <input type="email" placeholder="Enter User Email*" name="" id="email1" required>
+            <input type="password" placeholder="Enter Password*" name="" id="password1" required>
+            <input type="submit" name="" id="submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById("login").addEventListener("submit",function(event){
+            event.preventDefault();
+
+            let user=JSON.parse(localStorage.getItem("signup"));
+            console.log(user);
+
+            let email1=document.getElementById("email1").value
+            let password1=document.getElementById("password1").value
+
+            if(email1==user.email && password1==user.password){
+                window.location.href="index.html";
+                alert("User Logged!")
+            }
+            else{
+                alert("Incorrect Login Information !")
+            }
+
+            document.getElementById("email1").value="";
+            document.getElementById("password1").value="";
+            window.location.href="./index.html"
+
+        })
+    </script>
+</body>
+</html>
